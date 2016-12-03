@@ -1,6 +1,6 @@
 ﻿namespace Quicksort
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -125,6 +125,7 @@
             this.generateBtn.TabIndex = 9;
             this.generateBtn.Text = "Generate";
             this.generateBtn.UseVisualStyleBackColor = true;
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
             // sortBtn
             // 
@@ -160,7 +161,7 @@
             this.progressBar1.Size = new System.Drawing.Size(603, 23);
             this.progressBar1.TabIndex = 13;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +180,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "QuicksortDemostrationApp";
             this.ResumeLayout(false);
             this.PerformLayout();

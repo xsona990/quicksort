@@ -9,11 +9,19 @@ using System.Windows.Forms;
 
 namespace Quicksort
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
+        
+        private void generateBtn_Click(object sender, EventArgs e)
+        {
+
+           // randomArrayGeneration r = new randomArrayGeneration();
+        }
+
+       
     }
 }
