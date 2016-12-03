@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.elCountBox = new System.Windows.Forms.TextBox();
+            this.generatedArrayBox = new System.Windows.Forms.RichTextBox();
+            this.sortedArrayBox = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.maxValueBox = new System.Windows.Forms.TextBox();
+            this.minValueBox = new System.Windows.Forms.TextBox();
             this.generateBtn = new System.Windows.Forms.Button();
             this.sortBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progress = new System.Windows.Forms.ProgressBar();
+            this.status = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,28 +54,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Array elements count:";
             // 
-            // textBox1
+            // elCountBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 1;
+            this.elCountBox.Location = new System.Drawing.Point(128, 10);
+            this.elCountBox.Name = "elCountBox";
+            this.elCountBox.Size = new System.Drawing.Size(52, 20);
+            this.elCountBox.TabIndex = 1;
             // 
-            // richTextBox1
+            // generatedArrayBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(16, 58);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(277, 179);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.generatedArrayBox.Location = new System.Drawing.Point(16, 58);
+            this.generatedArrayBox.Name = "generatedArrayBox";
+            this.generatedArrayBox.ReadOnly = true;
+            this.generatedArrayBox.Size = new System.Drawing.Size(277, 179);
+            this.generatedArrayBox.TabIndex = 2;
+            this.generatedArrayBox.TabStop = false;
+            this.generatedArrayBox.Text = "";
             // 
-            // richTextBox2
+            // sortedArrayBox
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(301, 58);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(315, 179);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
+            this.sortedArrayBox.Location = new System.Drawing.Point(301, 58);
+            this.sortedArrayBox.Name = "sortedArrayBox";
+            this.sortedArrayBox.ReadOnly = true;
+            this.sortedArrayBox.Size = new System.Drawing.Size(315, 179);
+            this.sortedArrayBox.TabIndex = 3;
+            this.sortedArrayBox.TabStop = false;
+            this.sortedArrayBox.Text = "";
             // 
             // label2
             // 
@@ -88,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(188, 13);
+            this.label3.Location = new System.Drawing.Point(360, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 5;
@@ -97,25 +102,25 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(358, 13);
+            this.label4.Location = new System.Drawing.Point(190, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "MIN Random Value:";
             // 
-            // textBox2
+            // maxValueBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(299, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(52, 20);
-            this.textBox2.TabIndex = 7;
+            this.maxValueBox.Location = new System.Drawing.Point(471, 10);
+            this.maxValueBox.Name = "maxValueBox";
+            this.maxValueBox.Size = new System.Drawing.Size(52, 20);
+            this.maxValueBox.TabIndex = 8;
             // 
-            // textBox3
+            // minValueBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(467, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(52, 20);
-            this.textBox3.TabIndex = 8;
+            this.minValueBox.Location = new System.Drawing.Point(299, 10);
+            this.minValueBox.Name = "minValueBox";
+            this.minValueBox.Size = new System.Drawing.Size(52, 20);
+            this.minValueBox.TabIndex = 7;
             // 
             // generateBtn
             // 
@@ -144,6 +149,7 @@
             this.exitBtn.TabIndex = 11;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // label5
             // 
@@ -154,34 +160,44 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Soted Array: ";
             // 
-            // progressBar1
+            // progress
             // 
-            this.progressBar1.Location = new System.Drawing.Point(13, 273);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(603, 23);
-            this.progressBar1.TabIndex = 13;
+            this.progress.Location = new System.Drawing.Point(13, 273);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(603, 23);
+            this.progress.TabIndex = 13;
+            // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Location = new System.Drawing.Point(14, 299);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(0, 13);
+            this.status.TabIndex = 14;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 318);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.status);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.sortBtn);
             this.Controls.Add(this.generateBtn);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.minValueBox);
+            this.Controls.Add(this.maxValueBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.sortedArrayBox);
+            this.Controls.Add(this.generatedArrayBox);
+            this.Controls.Add(this.elCountBox);
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "QuicksortDemostrationApp";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,19 +206,20 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.TextBox elCountBox;
+        private System.Windows.Forms.RichTextBox generatedArrayBox;
+        private System.Windows.Forms.RichTextBox sortedArrayBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox maxValueBox;
+        private System.Windows.Forms.TextBox minValueBox;
         private System.Windows.Forms.Button generateBtn;
         private System.Windows.Forms.Button sortBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        public System.Windows.Forms.ProgressBar progress;
+        private System.Windows.Forms.Label status;
     }
 }
 
