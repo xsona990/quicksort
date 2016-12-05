@@ -12,6 +12,7 @@ namespace Quicksort
 {
     public partial class MainForm : Form
     {
+        int[] result;
         public MainForm()
         {
             InitializeComponent();
@@ -25,14 +26,9 @@ namespace Quicksort
 
         private void generateBtn_Click(object sender, EventArgs e)
         {
-
-            DateTime startTime = DateTime.Now;
-            DateTime endTime;
-            
             progress.Value = 0;
             generatedArrayBox.Clear();
             int elCount, max, min;
-            int [] result;
             elCount = parse(elCountBox.Text, elCountBox.Name);
             max = parse(maxValueBox.Text, maxValueBox.Name);
             min = parse(minValueBox.Text, minValueBox.Name);
@@ -50,8 +46,7 @@ namespace Quicksort
                         }
                     }
                     progress.Value = 0;
-                    endTime = DateTime.Now;
-                    status.Text = "Ready! Total time " + (endTime - startTime).Milliseconds + " ms.";
+                    status.Text = "Ready!";
                 }
                 else
                 {
@@ -82,6 +77,26 @@ namespace Quicksort
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void sortBtn_Click(object sender, EventArgs e)
+        {
+            progress.Value = 0;
+            sortedArrayBox.Clear();
+            Quicksort qs = new Quicksort();
+            result= qs.sorting(result, 0, result.Length - 1);
+            if (result != null)
+            {
+                progress.Maximum = result.Length;
+                 foreach (int value in result)
+                 {
+                     progress.Value++;
+                     sortedArrayBox.Text += value.ToString() + " ";
+                  }
+               
+            }
+            progress.Value = 0;
+            status.Text = "Ready!";
         }
     }
 }

@@ -140,6 +140,7 @@
             this.sortBtn.TabIndex = 10;
             this.sortBtn.Text = "Sort";
             this.sortBtn.UseVisualStyleBackColor = true;
+            this.sortBtn.Click += new System.EventHandler(this.sortBtn_Click);
             // 
             // exitBtn
             // 

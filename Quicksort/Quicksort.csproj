@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quicksort.cs" />
     <Compile Include="randomArrayGeneration.cs" />
     <Compile Include="tests\testMethods.cs" />
     <EmbeddedResource Include="MainForm.resx">
